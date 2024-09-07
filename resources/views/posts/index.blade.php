@@ -14,12 +14,15 @@
                 <h5 class="card-title">{{ $post->title }}</h5>
                 <p class="card-text">{{ $post->body}}</p>
 
-                <form action="{{ route('posts.destroy', $post->id) }}" method="POST" onclick="return confirm('Are you sure you want to delete this post?');">
-                    @csrf
-                    @method('DELETE')
-                    <a href="#" class="btn btn-primary">Edit</a>
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
+                <div class="buttons">
+                  <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary">Edit</a>
+                  
+                  <form action="{{ route('posts.destroy', $post->id) }}" method="POST" onclick="return confirm('Are you sure you want to delete this post?');">
+                      @csrf
+                      @method('DELETE')    
+                      <button type="submit" class="btn btn-danger">Delete</button>
+                  </form>
+                </div>
               </div>
             </div>
       @endforeach

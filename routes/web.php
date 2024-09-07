@@ -19,3 +19,6 @@ Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
 // Handle the deletion of a blog post
 Route::delete('/post/{post}',[PostController::class,'destroy'])->name('posts.destroy');
 
+// Handle the Editing of a blog post
+Route::get('/posts/{post}/edit',[PostController::class,'edit'])->name('posts.edit');
+ROute::put('/posts/{post}',[PostController::class,'update'])->name('posts.update');
