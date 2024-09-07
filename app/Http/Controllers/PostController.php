@@ -33,6 +33,24 @@ class PostController extends Controller
         return redirect()->route('posts.index')->with('success', 'Post created successfully!');
     }
 
+    public function edit(Post $post)
+    {
+        return view ('posts.edit',compact('post'));
+    }
+
+    public function update(Request $request, Post $post)
+    {
+        // Validate the updated data
+        $request->validate([
+            'title' => 'required',
+            'body' => 'required',
+        ]);
+        // update the post
+        $post->update($request->except(['_token', '_method']));
+
+        return redirect()->route('posts.index')->with('success', 'Post updated successfully');
+    }
+
     public function destroy(Post $post)
     {
         $post->delete();
