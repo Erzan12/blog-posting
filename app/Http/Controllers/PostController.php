@@ -9,7 +9,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::all(); // fetch all posts
+        $posts = Post::paginate(5); // fetch all posts
         return view('posts.index', compact('posts'));
     }
     
@@ -56,5 +56,20 @@ class PostController extends Controller
         $post->delete();
 
         return redirect()->route('posts.index')->with('success', 'Post deleted successfully');
+    }
+
+    public function filter(Request $request)
+    {
+        $category = $request->input('category');
+        
+        // If a category is selected, filter by category, else return all posts
+        if ($category){
+            $posts = Post::where('category', $category)->paginate(10);
+        } else {
+            $posts = Post::paginate(10);
+        }
+
+        // Return the partial view with the filtered posts
+        return view('partials.posts', compact('post'))->render();
     }
 }
