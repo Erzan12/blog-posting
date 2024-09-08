@@ -8,6 +8,23 @@
             {{ session('success') }}
         </div>
     @endif
+
+        <!-- Filter Section -->
+    <div class="filter-section mb-4">
+        <label for="categoryFilter">Filter by Category:</label>
+        <select id="categoryFilter" class="form-control">
+            <option value="">All Categories</option>
+            <option value="tech">Tech</option>
+            <option value="lifestyle">Lifestyle</option>
+            <option value="education">Education</option>
+            <!-- Add more categories as needed -->
+        </select>
+    </div>
+
+            <!-- Include jQuery -->
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
       @foreach($posts as $post)
             <div class="card mt-4">
               <div class="card-body">
@@ -26,5 +43,9 @@
               </div>
             </div>
       @endforeach
+      <div class="pagination-wrap">
+        {{ $posts->links('vendor.pagination.custom')}}
+      </div>
+
   </div>
 @endsection

@@ -1,0 +1,41 @@
+/* Aesthetic smaller pagination buttons */
+.pagination-sm .page-link {
+  display: block;
+  position: relative;
+  width: 40px;              /* Slightly larger than before for a balanced look */
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;          /* Slightly larger font */
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(135deg, #4b6cb7 0%, #182848 100%); /* Gradient background */
+  border: none;             /* Remove borders */
+  border-radius: 8px;       /* Smooth rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for a lifted effect */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Active pagination button with aesthetic gradient */
+.pagination-sm .page-item.active .page-link {
+  background: linear-gradient(135deg, #ff6a00 0%, #ee0979 100%); /* Gradient for active button */
+  color: white;
+  box-shadow: 0 6px 12px rgba(255, 106, 0, 0.5); /* Glowing shadow for the active button */
+  border-radius: 8px;
+}
+
+/* Hover effect for pagination buttons */
+.pagination-sm .page-link:hover {
+  background: linear-gradient(135deg, #36d1dc 0%, #5b86e5 100%); /* New gradient on hover */
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(54, 209, 220, 0.3); /* Glow effect on hover */
+  transform: scale(1.05); /* Slight scale-up effect */
+}
+
+/* Disabled buttons styling */
+.pagination-sm .page-item.disabled .page-link {
+  background-color: #f0f0f0;
+  color: #c4c4c4;
+  border-radius: 8px;
+  box-shadow: none;
+}
+

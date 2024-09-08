@@ -22,3 +22,6 @@ Route::delete('/post/{post}',[PostController::class,'destroy'])->name('posts.des
 // Handle the Editing of a blog post
 Route::get('/posts/{post}/edit',[PostController::class,'edit'])->name('posts.edit');
 ROute::put('/posts/{post}',[PostController::class,'update'])->name('posts.update');
+
+// Handle the filtering of all blog post information
+Route::get('/posts/filter', [PostController::class,'filter'])->name('posts.filter');
