@@ -39,3 +39,38 @@
   box-shadow: none;
 }
 
+.alert {
+  width: 30%; /* Adjust as needed */
+  font-size: 14px; /* Optional: reduce font size */
+}
+
+.notification{
+  margin-bottom: 0px;
+}
+
+.filter-section {
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.post {
+  padding: 15px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.card {
+  border-radius: 10px;
+}
+
+.card-title {
+  color: #007bff;
+}
+
+.card-text {
+  color: #6c757d;
+}
+
+
+

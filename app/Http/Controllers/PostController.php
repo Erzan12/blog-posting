@@ -26,8 +26,8 @@ class PostController extends Controller
             'body' => 'required',
         ]);
 
-        // Create a new post excluding the _token field
-        Post::create($request->except('_token'));
+        // Validate and create the new entry (e.g., a new post)
+        $posts = Post::create($request->except('_token'));
 
         // Redirect or return a response
         return redirect()->route('posts.index')->with('success', 'Post created successfully!');
