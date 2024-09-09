@@ -2,28 +2,28 @@
 
 @section('content')
   <div class="container">
+
     <h1>All Blog Posts</h1>
-    @if(session('success')) 
-        <div class="alert alert-success">
+
+    @if(session('success'))
+      <div class="notification d-flex justify-content-end">
+        <div id="autoDismissAlert" class="alert alert-success alert-dismissible fade show small-alert" role="alert">
             {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
+      </div>
     @endif
 
-        <!-- Filter Section -->
-    <div class="filter-section mb-4">
-        <label for="categoryFilter">Filter by Category:</label>
-        <select id="categoryFilter" class="form-control">
-            <option value="">All Categories</option>
-            <option value="tech">Tech</option>
-            <option value="lifestyle">Lifestyle</option>
-            <option value="education">Education</option>
-            <!-- Add more categories as needed -->
-        </select>
-    </div>
-
-            <!-- Include jQuery -->
-            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+    <script>
+        // Set a timeout to automatically close the alert after 5 seconds (5000 milliseconds)
+        setTimeout(function() {
+            var alertElement = document.getElementById('autoDismissAlert');
+            if (alertElement) {
+                var alert = new bootstrap.Alert(alertElement);
+                alert.close();  // Bootstrap's built-in method to close the alert
+            }
+        }, 3000);  // 5000ms = 5 seconds
+    </script>
 
       @foreach($posts as $post)
             <div class="card mt-4">
