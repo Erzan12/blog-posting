@@ -17,7 +17,7 @@
         <textarea name="body" class="form-control" required>{{ $post->body }}</textarea>
       </div>
 
-      <button type="submit" class="btn btn-primary mt-3"> Update Post </button>
+      <button type="submit" class="btn btn-success btn-rounded" data-mdb-ripple-init> Update Post </button>
     </form>
   </div>
   @endsection

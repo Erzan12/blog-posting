@@ -25,3 +25,7 @@ ROute::put('/posts/{post}',[PostController::class,'update'])->name('posts.update
 
 // Handle the filtering of all blog post information
 Route::get('/posts/filter', [PostController::class,'filter'])->name('posts.filter');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
