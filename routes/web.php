@@ -2,10 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\Auth\LoginController;
+
 
 Route::get('/', function () {
     return view('welcome');
 });
+// handle logging out of a user account
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // Handle the listing of all the blog post
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');

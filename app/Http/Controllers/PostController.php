@@ -20,19 +20,22 @@ class PostController extends Controller
 
     public function store(Request $request)
     {
-        // Validate the request (optional)
-        $validatedData = $request->validate([
-            'title' => 'required|max:255',
+        // Validate the post data
+        $request->validate([
+            'title' => 'required|string|max:255',
             'body' => 'required',
         ]);
-
-        // Validate and create the new entry (e.g., a new post)
-        $posts = Post::create($request->except('_token'));
-
-        // Redirect or return a response
+    
+        // Create the post and associate it with the authenticated user
+        Post::create([
+            'title' => $request->input('title'),
+            'body' => $request->input('body'),
+            'user_id' => auth()->id(), // Pass the ID of the logged-in user
+        ]);
+    
         return redirect()->route('posts.index')->with('success', 'Post created successfully!');
     }
-
+    
     public function edit(Post $post)
     {
         return view ('posts.edit',compact('post'));
@@ -71,5 +74,9 @@ class PostController extends Controller
 
         // Return the partial view with the filtered posts
         return view('partials.posts', compact('post'))->render();
+    }
+    public function __construct()
+    {
+        $this->middleware('auth'); // Only authenticated users can create posts
     }
 }
