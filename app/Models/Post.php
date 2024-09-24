@@ -11,8 +11,6 @@ class Post extends Model
 
     // Specify which fields can be mass assigned
     protected $fillable = [
-        'title',
-        'body',
-        '_token', // (optional) though you shouldn't typically need to add this
+        'title', 'body', 'user_id', // Make sure 'user_id' is fillable
     ];
 }
